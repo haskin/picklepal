@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { profileData } from './data/profileData';
+import { Profile } from './model/profile';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'picklepal';
+  title = 'Pickel Pal';
+  index: number = 0;
+  profiles: Profile[] = profileData;
+  pals: Set<string> = new Set<string>;
+  increaseIndex() {
+    console.log("clicked arrow");
+    this.index = (this.index + 1) % profileData.length
+  }
+  addPal() {
+    this.pals.add(this.profiles[this.index].name);
+    this.index = (this.index + 1) % profileData.length
+  }
 }
