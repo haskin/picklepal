@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { profileData } from './data/profileData';
 import { Profile } from './model/profile';
+import { RouterModule, Routes } from '@angular/router'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent {
   title = 'Pickel Pal';
   index: number = 0;
