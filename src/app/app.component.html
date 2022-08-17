@@ -5,13 +5,19 @@
         alt="">
     <h1>Pal</h1>
 </div>
-<div id="profile-container">
-    <img (click)="increaseIndex()" id="left-arrow" class="arrow"
-        src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46483/right-arrow-emoji-clipart-md.png" alt="">
+<div id="main-container">
+    <div class="arrow-container">
+        <img (click)="increaseIndex()" id="left-arrow" class="arrow"
+            src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46483/right-arrow-emoji-clipart-md.png"
+            alt="">
+    </div>
     <app-profile id="profile-container" [profile]="profiles[index]"></app-profile>
-    <img (click)="addPal()" id="right-arrow" class="arrow"
-        src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46483/right-arrow-emoji-clipart-md.png" alt="">
+    <div class="arrow-container">
+        <img (click)="addPal()" id="right-arrow" class="arrow"
+            src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46483/right-arrow-emoji-clipart-md.png"
+            alt="">
+    </div>
 </div>
-<div>
+<div id="pals-container">
     <app-pal [pals]="pals"></app-pal>
 </div>
