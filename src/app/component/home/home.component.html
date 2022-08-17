@@ -1,1 +1,24 @@
-<p>home works!</p>
+<a id="pal-list-link" routerLink="/pals">Pal List ({{pals.size}})</a>
+<div id="logo-container">
+    <h1>Pickle</h1>
+    <img id="logo"
+        src="https://www.hobocoin.it/3426-thickbox_default/pickle-rick-rick-and-morty-1-oz-silver-coin-1-cook-islands-2022.jpg"
+        alt="">
+    <h1>Pal</h1>
+</div>
+<div id="main-container">
+    <div class="arrow-container">
+        <img (click)="increaseIndex()" id="left-arrow" class="arrow"
+            src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46483/right-arrow-emoji-clipart-md.png"
+            alt="">
+    </div>
+    <app-profile id="profile-container" [profile]="profiles[index]"></app-profile>
+    <div class="arrow-container">
+        <img (click)="addPal()" id="right-arrow" class="arrow"
+            src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46483/right-arrow-emoji-clipart-md.png"
+            alt="">
+    </div>
+</div>
+<!-- <div id="pals-container">
+    <app-pal [pals]="pals"></app-pal>
+</div> -->

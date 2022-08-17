@@ -1,4 +1,8 @@
-<h2>Pal's List</h2>
-<ul *ngFor="let pal of pals">
-    <li>{{pal}}</li>
-</ul>
+<div id = "profile-container">
+    <div id="image-container">
+        <img [src]="profile.photo" alt="">
+    </div>
+    <p>{{profile.name}}, {{profile.age}}</p>
+    <p>{{profile.skillLevel}}</p>
+    <p>{{profile.description}}</p>
+</div>>

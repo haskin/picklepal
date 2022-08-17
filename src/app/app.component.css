@@ -1,15 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    /* font-size: medium; */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 #logo-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin: 10px 0 10px 0;
     color: green;
 }
 

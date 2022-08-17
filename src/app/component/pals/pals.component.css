@@ -1,0 +1,19 @@
+#pals-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+    aspect-ratio: 1/1;
+    margin: 0 auto 0 auto;
+    /* border: 1px solid blue; */
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+}

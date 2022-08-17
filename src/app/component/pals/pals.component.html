@@ -1,0 +1,8 @@
+<div id="pals-container">
+    <h1>Pal's List</h1>
+    <ul *ngFor="let index of palIndices">
+        <a routerLink="/pal/{{index}}">
+            <img [src]="profiles[index].photo" alt="">
+        </a>
+    </ul>
+</div>

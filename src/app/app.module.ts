@@ -6,10 +6,17 @@ import { ProfileComponent } from './component/profile/profile.component';
 import { PalComponent } from './component/pal/pal.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './component/home/home.component';
+import { PalsComponent } from './component/pals/pals.component';
 
 const routes: Routes = [
   {
-    path: "", component: AppComponent
+    path: "", component: HomeComponent,
+  },
+  {
+    path: "pals", component: PalsComponent
+  },
+  {
+    path: 'pal/:id', component: PalComponent 
   }
 ];
 
@@ -18,7 +25,8 @@ const routes: Routes = [
     AppComponent,
     ProfileComponent,
     PalComponent,
-    HomeComponent
+    HomeComponent,
+    PalsComponent
   ],
   imports: [
     BrowserModule,
