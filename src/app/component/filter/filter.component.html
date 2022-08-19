@@ -1,0 +1,13 @@
+<h1>Filters</h1>
+<div>
+    <!-- <select>
+        <option value></option>
+    </select> -->
+    <select [(ngModel)]="currentSkillLevel" (ngModelChange)="skillLevelChange($event)" name="dropdownOption"
+        id="dropdownOption" class='form-control'>
+        <option *ngFor="let skill of skillLevels" [ngValue]="skill">{{skill}}</option>
+        <!-- <option [value]="tempValue">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option> -->
+    </select>
+</div>

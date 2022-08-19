@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { profileData } from 'src/app/data/profileData';
-import { Profile } from 'src/app/model/profile';
+import { Profile, SkillLevel } from 'src/app/model/profile';
 import { PalService } from 'src/app/service/pal.service';
+import { ProfileService } from 'src/app/service/profile.service';
 
 // const pals: Set<number> = new Set<number>;
 
@@ -16,24 +17,37 @@ export class HomeComponent implements OnInit {
   index: number = 0;
   profiles: Profile[] = profileData;
   pals: Set<number> = new Set<number>();
+  skillLevel: SkillLevel = SkillLevel.Beginner;
   // pals: Set<string> = new Set<string>;
   increaseIndex() {
     console.log("clicked arrow");
-    this.index = (this.index + 1) % profileData.length
+    this.index = (this.index + 1) % this.profiles.length;
   }
   addPal() {
     this.palService.addPal(this.index);
-    this.index = (this.index + 1) % profileData.length
+    this.index = (this.index + 1) % this.profiles.length;
   }
 
   // constructor injection
-  constructor(private palService: PalService) {
+  constructor(private palService: PalService, private profileService: ProfileService) {
     this.pals = palService.getPals();
   }
 
   ngOnInit(): void {
   }
 
+  filterBySkillLevel(skillLevelFilter: SkillLevel) {
+    this.skillLevel = skillLevelFilter;
+    // console.log(this.skillLevel);
+    this.filter();
+    
+    //profileData = profileData.filter() 
+  }
+
+  filter() {
+    let allProfiles = this.profileService.getProfiles();
+    this.profiles = allProfiles.filter( profile => profile.skillLevel == this.skillLevel);
+  }
 }
 
 // export { pals }

@@ -7,6 +7,8 @@ import { PalComponent } from './component/pal/pal.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './component/home/home.component';
 import { PalsComponent } from './component/pals/pals.component';
+import { FilterComponent } from './component/filter/filter.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -26,11 +28,13 @@ const routes: Routes = [
     ProfileComponent,
     PalComponent,
     HomeComponent,
-    PalsComponent
+    PalsComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

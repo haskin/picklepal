@@ -6,6 +6,7 @@
         alt="">
     <h1>Pal</h1>
 </div>
+<app-filter (skillEvent)="filterBySkillLevel($event)"></app-filter>
 <div id="main-container">
     <div class="arrow-container">
         <img (click)="increaseIndex()" id="left-arrow" class="arrow"
