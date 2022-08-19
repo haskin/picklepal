@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { profileData } from 'src/app/data/profileData';
-import { Profile, SkillLevel, SkillLevel } from 'src/app/model/profile';
+import { Profile, SkillLevel } from 'src/app/model/profile';
 import { PalService } from 'src/app/service/pal.service';
 import { ProfileService } from 'src/app/service/profile.service';
 
