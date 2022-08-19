@@ -29,3 +29,7 @@ img {
     /* border: 1px solid blue; */
     border-radius: 10px;
 }
+
+* {
+    line-height: 30px;
+}

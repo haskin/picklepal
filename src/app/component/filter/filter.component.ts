@@ -10,7 +10,7 @@ export class FilterComponent implements OnInit {
 
   tempValue = "test";
   currentSkillLevel: SkillLevel = SkillLevel.Beginner;
-  skillLevels: SkillLevel[] = [SkillLevel.Beginner, SkillLevel.Master];
+  skillLevels: SkillLevel[] = [SkillLevel.Beginner, SkillLevel.Intermediate, SkillLevel.Advanced, SkillLevel.Master];
   constructor() { }
 
   ngOnInit(): void {
