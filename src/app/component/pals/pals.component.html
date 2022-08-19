@@ -4,5 +4,6 @@
         <a routerLink="/pal/{{index}}">
             <img [src]="profiles[index].photo" alt="">
         </a>
+        <button (click)="deletePal(index)">Delete</button>
     </ul>
 </div>

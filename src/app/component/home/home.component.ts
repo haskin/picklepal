@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { profileData } from 'src/app/data/profileData';
 import { Profile } from 'src/app/model/profile';
+import { PalService } from 'src/app/service/pal.service';
 
-const pals: Set<number> = new Set<number>;
+// const pals: Set<number> = new Set<number>;
 
 @Component({
   selector: 'app-home',
@@ -14,21 +15,25 @@ export class HomeComponent implements OnInit {
   title = 'Pickel Pal';
   index: number = 0;
   profiles: Profile[] = profileData;
-  pals: Set<number> = pals;
+  pals: Set<number> = new Set<number>();
   // pals: Set<string> = new Set<string>;
   increaseIndex() {
     console.log("clicked arrow");
     this.index = (this.index + 1) % profileData.length
   }
   addPal() {
-    pals.add(this.index);
+    this.palService.addPal(this.index);
     this.index = (this.index + 1) % profileData.length
   }
-  constructor() { }
+
+  // constructor injection
+  constructor(private palService: PalService) {
+    this.pals = palService.getPals();
+  }
 
   ngOnInit(): void {
   }
 
 }
 
-export { pals }
+// export { pals }
