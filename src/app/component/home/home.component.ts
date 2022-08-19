@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { profileData } from 'src/app/data/profileData';
-import { Profile, SkillLevel } from 'src/app/model/profile';
+import { Profile, SkillLevel, SkillLevel } from 'src/app/model/profile';
 import { PalService } from 'src/app/service/pal.service';
 import { ProfileService } from 'src/app/service/profile.service';
 
@@ -13,7 +13,7 @@ import { ProfileService } from 'src/app/service/profile.service';
 })
 export class HomeComponent implements OnInit {
 
-  title = 'Pickel Pal';
+  title = 'Pickle Pal';
   index: number = 0;
   profiles: Profile[] = profileData;
   pals: Set<number> = new Set<number>();

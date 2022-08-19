@@ -17,3 +17,15 @@ img {
 a {
     text-decoration: none;
 }
+
+button {
+  background-color: red;
+  color: black;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: lightcoral;
+}
