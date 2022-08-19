@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { profileData } from 'src/app/data/profileData';
-import { Profile } from 'src/app/model/profile';
+import { Profile, SkillLevel } from 'src/app/model/profile';
 import { PalService } from 'src/app/service/pal.service';
 
 // const pals: Set<number> = new Set<number>;
@@ -12,10 +12,12 @@ import { PalService } from 'src/app/service/pal.service';
 })
 export class HomeComponent implements OnInit {
 
-  title = 'Pickel Pal';
+  title = 'Pickle Pal';
   index: number = 0;
   profiles: Profile[] = profileData;
   pals: Set<number> = new Set<number>();
+  skillLevels: SkillLevel[] = [SkillLevel.Beginner, SkillLevel.Intermediate, SkillLevel.Advanced, SkillLevel.Master];
+
   // pals: Set<string> = new Set<string>;
   increaseIndex() {
     console.log("clicked arrow");

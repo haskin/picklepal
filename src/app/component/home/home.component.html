@@ -6,6 +6,12 @@
         alt="">
     <h1>Pal</h1>
 </div>
+<div id = "skill-level-container">
+  <select *ngFor="let skill of skillLevels">
+    <option [value]="skill"></option>
+  </select>
+
+</div>
 <div id="main-container">
     <div class="arrow-container">
         <img (click)="increaseIndex()" id="left-arrow" class="arrow"
