@@ -12,18 +12,30 @@ img {
     margin: 0 auto 0 auto;
     /* border: 1px solid blue; */
     border-radius: 10px;
+    z-index: -1;
 }
 
 a {
     text-decoration: none;
 }
 
+h1 {
+    position: relative;
+    right: 10px;
+    color: green;
+}
 button {
   background-color: red;
   color: black;
   font-weight: bold;
   padding: 5px;
   border-radius: 5px;
+  z-index: 10px;
+  position: relative;
+  display: inline;
+  /* right:500px; */
+  bottom:225px;
+  right: 60px;
 }
 
 button:hover {
