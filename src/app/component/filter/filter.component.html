@@ -1,15 +1,19 @@
 <div id="filters-container">
-    <h1>Filters</h1>
-    <div>
-        <!-- <select>
-            <option value></option>
-        </select> -->
-        <select [(ngModel)]="currentSkillLevel" (ngModelChange)="skillLevelChange($event)" name="dropdownOption"
-            id="dropdownOption" class='form-control'>
-            <option *ngFor="let skill of skillLevels" [ngValue]="skill">{{skill}}</option>
-            <!-- <option [value]="tempValue">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option> -->
-        </select>
+  <h1>Filters</h1>
+  <div class="filters-row">
+    <div class="select-filter-container">
+      <label class="label-select-filter">Skill Level</label>
+      <select
+        [(ngModel)]="currentSkillLevel"
+        (ngModelChange)="skillLevelChange($event)"
+        name="dropdownOption"
+        id="skillLevelFilter"
+        class="form-control"
+      >
+        <option *ngFor="let skill of skillLevels" [ngValue]="skill">
+          {{ skill }}
+        </option>
+      </select>
     </div>
+  </div>
 </div>
