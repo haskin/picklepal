@@ -15,8 +15,9 @@
 #logo-container {
     display: flex;
     justify-content: center;
-    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
     color: green;
+    background-color:#e4fde3;
 }
 
 #logo {
@@ -42,7 +43,8 @@
     align-items: center;
     border-radius: 10px;
     padding: 10px;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
+    background-color: #e4fde3;
     width: 335px;
     height: 400px;
 }
