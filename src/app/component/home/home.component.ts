@@ -18,16 +18,30 @@ export class HomeComponent implements OnInit {
   pals: Set<number> = new Set<number>();
   skillLevel: SkillLevel = SkillLevel.Beginner;
   cardSwipe: string = '';
+  cardDisplay: string = '';
   // pals: Set<string> = new Set<string>;
   leftSwipe() {
-    console.log('clicked arrow');
+    this.cardSwipe = 'translate(-1000px, 250px) rotate(-60deg)';
     this.index = (this.index + 1) % this.profiles.length;
+    setTimeout(() => {
+      this.cardDisplay = 'none';
+      setTimeout(() => { this.resetCardStyle() }, 250);
+    }, 100);
   }
   rightSwipe() {
     this.palService.addPal(this.index);
     this.index = (this.index + 1) % this.profiles.length;
-  }
+    this.cardSwipe = 'translate(1000px, 250px) rotate(60deg)';
+    setTimeout(() => {
+      this.cardDisplay = 'none';
+      setTimeout(() => { this.resetCardStyle() }, 250);
+    }, 100);
+}
 
+  resetCardStyle() {
+    this.cardSwipe = '';
+    this.cardDisplay = '';
+  }
   // constructor injection
   constructor(
     private palService: PalService,
