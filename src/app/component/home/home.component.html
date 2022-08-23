@@ -9,13 +9,13 @@
 <app-filter (skillEvent)="filterBySkillLevel($event)"></app-filter>
 <div id="main-container">
     <div class="arrow-container">
-        <img (click)="increaseIndex()" id="left-arrow" class="arrow"
+        <img (click)="leftSwipe()" id="left-arrow" class="arrow"
             src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46483/right-arrow-emoji-clipart-md.png"
             alt="">
     </div>
-    <app-profile id="profile-container" [profile]="profiles[index]"></app-profile>
+    <app-profile id="profile-container" [profile]="profiles[index]" [ngStyle]="{'transform': 'cardSwipe'}"></app-profile>
     <div class="arrow-container">
-        <img (click)="addPal()" id="right-arrow" class="arrow"
+        <img (click)="rightSwipe()" id="right-arrow" class="arrow"
             src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46483/right-arrow-emoji-clipart-md.png"
             alt="">
     </div>
