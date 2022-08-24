@@ -12,18 +12,6 @@
   color: green;
 }
 
-#logo-container {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0 10px 0;
-  color: green;
-  background-color: #e4fde3;
-}
-
-#logo {
-  height: 50px;
-}
-
 #main-container {
   /* border: 1px solid red; */
   width: 100%;

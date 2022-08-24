@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { profileData } from 'src/app/data/profileData';
 import { Profile, SkillLevel } from 'src/app/model/profile';
-import { PalService } from 'src/app/service/pal.service';
+import { PalsService } from 'src/app/service/pals.service';
 import { ProfileService } from 'src/app/service/profile.service';
 
 // const pals: Set<number> = new Set<number>;
@@ -25,18 +25,22 @@ export class HomeComponent implements OnInit {
     this.index = (this.index + 1) % this.profiles.length;
     setTimeout(() => {
       this.cardDisplay = 'none';
-      setTimeout(() => { this.resetCardStyle() }, 250);
+      setTimeout(() => {
+        this.resetCardStyle();
+      }, 250);
     }, 100);
   }
   rightSwipe() {
-    this.palService.addPal(this.index);
+    this.palsService.addPal(this.index);
     this.index = (this.index + 1) % this.profiles.length;
     this.cardSwipe = 'translate(1000px, 250px) rotate(60deg)';
     setTimeout(() => {
       this.cardDisplay = 'none';
-      setTimeout(() => { this.resetCardStyle() }, 250);
+      setTimeout(() => {
+        this.resetCardStyle();
+      }, 250);
     }, 100);
-}
+  }
 
   resetCardStyle() {
     this.cardSwipe = '';
@@ -44,10 +48,10 @@ export class HomeComponent implements OnInit {
   }
   // constructor injection
   constructor(
-    private palService: PalService,
+    private palsService: PalsService,
     private profileService: ProfileService
   ) {
-    this.pals = palService.getPals();
+    this.pals = palsService.getPals();
   }
 
   ngOnInit(): void {}

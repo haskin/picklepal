@@ -9,6 +9,7 @@ import { HomeComponent } from './component/home/home.component';
 import { PalsComponent } from './component/pals/pals.component';
 import { FilterComponent } from './component/filter/filter.component';
 import { FormsModule } from '@angular/forms';
+import { NavigationBarComponent } from './component/navigation-bar/navigation-bar.component';
 
 const routes: Routes = [
   {
@@ -29,7 +30,8 @@ const routes: Routes = [
     PalComponent,
     HomeComponent,
     PalsComponent,
-    FilterComponent
+    FilterComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,

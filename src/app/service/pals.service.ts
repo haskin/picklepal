@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 
-export class PalService {
+export class PalsService {
 
   // palArray
   pals: Set<number> = new Set<number>;
@@ -25,5 +25,5 @@ export class PalService {
   removePal(index: number) {
     this.pals.delete(index);
   }
-  
+
 }
