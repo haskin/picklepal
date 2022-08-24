@@ -56,8 +56,8 @@
 }
 
 .arrow {
-  max-width: 180px;
-  max-height: 180px;
+  max-width: 150px;
+  max-height: 150px;
   /* justify-content: center;
     align-items: center; */
   margin: 0px;
@@ -85,12 +85,11 @@
 }
 
 .arrow > img {
-  width: 120px;
+  width: 90px;
 }
 
 #left-arrow {
   background-color: crimson;
-  /* border-radius: 500px; */
 }
 
 #left-arrow:hover {
