@@ -1,4 +1,5 @@
-import { Profile, SkillLevel } from "../model/profile";
+import { Profile} from "../model/profile";
+import { SkillLevel } from "../model/skillLevel.enum";
 
 export const profileData: Profile[] = [
     {

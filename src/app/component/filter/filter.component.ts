@@ -1,20 +1,24 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { SkillLevel } from 'src/app/model/profile';
+import { SkillLevel } from 'src/app/model/skillLevel.enum';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.css']
+  styleUrls: ['./filter.component.css'],
 })
 export class FilterComponent implements OnInit {
+  tempValue = 'test';
+  currentSkillLevel: SkillLevel = SkillLevel.All;
+  skillLevels: SkillLevel[] = [
+    SkillLevel.All,
+    SkillLevel.Beginner,
+    SkillLevel.Intermediate,
+    SkillLevel.Advanced,
+    SkillLevel.Master,
+  ];
+  constructor() {}
 
-  tempValue = "test";
-  currentSkillLevel: SkillLevel = SkillLevel.Beginner;
-  skillLevels: SkillLevel[] = [SkillLevel.Beginner, SkillLevel.Intermediate, SkillLevel.Advanced, SkillLevel.Master];
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   @Output()
   skillEvent = new EventEmitter<SkillLevel>();

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription, tap } from 'rxjs';
-import { profileData } from 'src/app/data/profileData';
-import { Profile, SkillLevel } from 'src/app/model/profile';
+import { SkillLevel } from 'src/app/model/skillLevel.enum';
+import { Profile } from 'src/app/model/profile';
 import { PalsService } from 'src/app/service/pals.service';
 import { ProfileService } from 'src/app/service/profile.service';
 
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   index: number = 0;
   profileSubscription: Subscription;
   profiles: Profile[] = [];
-  skillLevel: SkillLevel = SkillLevel.Beginner;
+  skillLevel: SkillLevel = SkillLevel.All;
   cardSwipe: string = '';
   cardDisplay: string = '';
   // pals: Set<string> = new Set<string>;

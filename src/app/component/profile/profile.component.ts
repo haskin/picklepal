@@ -1,24 +1,22 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Profile, SkillLevel } from 'src/app/model/profile';
+import { Profile } from 'src/app/model/profile';
+import { SkillLevel } from 'src/app/model/skillLevel.enum';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-
   @Input()
   profile: Profile = {
-    name: "",
+    name: '',
     age: 0,
-    photo: "",
+    photo: '',
     skillLevel: SkillLevel.Advanced,
-    description: ""
+    description: '',
   };
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
