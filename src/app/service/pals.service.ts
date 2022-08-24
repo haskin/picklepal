@@ -1,29 +1,33 @@
 import { Injectable } from '@angular/core';
+import { of, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class PalsService {
-
   // palArray
-  pals: Set<number> = new Set<number>;
+  palsIds: Set<number> = new Set();
+  palsIdsSubject: Subject<Set<number>>;
 
-  constructor() { }
+  constructor() {
+    this.palsIdsSubject = new Subject();
+  }
 
-  // getter
   getPals(): Set<number> {
-    return this.pals;
+    return new Set(this.palsIds);
   }
 
-  // add
   addPal(index: number) {
-    this.pals.add(index);
+    this.palsIds.add(index);
+    this.palsIdsSubject.next(new Set(this.palsIds));
   }
 
-  // delete
   removePal(index: number) {
-    this.pals.delete(index);
+    this.palsIds.delete(index);
+    this.palsIdsSubject.next(new Set(this.palsIds));
   }
 
+  pull(): Subject<Set<number>> {
+    return this.palsIdsSubject;
+  }
 }

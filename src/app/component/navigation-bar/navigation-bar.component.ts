@@ -8,7 +8,9 @@ import { PalsService } from 'src/app/service/pals.service';
 })
 export class NavigationBarComponent implements OnInit {
   palsSize: number = 0;
-  constructor(private palsService: PalsService) {}
+  constructor(private palsService: PalsService) {
+    palsService.pull().subscribe(palsId => { this.palsSize = palsId.size });
+  }
 
   ngOnInit(): void {
     this.palsSize = this.palsService.getPals().size;

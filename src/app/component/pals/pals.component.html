@@ -1,6 +1,6 @@
 <app-navigation-bar></app-navigation-bar>
 <div id="pals-container">
-    <ul *ngFor="let index of palIndices">
+    <ul *ngFor="let index of palsId">
         <a routerLink="/pal/{{index}}">
             <img [src]="profiles[index].photo" alt="">
         </a>
