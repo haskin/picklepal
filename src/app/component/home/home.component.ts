@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription, tap } from 'rxjs';
 import { profileData } from 'src/app/data/profileData';
 import { Profile, SkillLevel } from 'src/app/model/profile';
 import { PalsService } from 'src/app/service/pals.service';
@@ -11,11 +12,11 @@ import { ProfileService } from 'src/app/service/profile.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   title = 'Pickle Pal';
   index: number = 0;
-  profiles: Profile[] = profileData;
-  pals: Set<number> = new Set<number>();
+  profileSubscription: Subscription;
+  profiles: Profile[] = [];
   skillLevel: SkillLevel = SkillLevel.Beginner;
   cardSwipe: string = '';
   cardDisplay: string = '';
@@ -51,10 +52,16 @@ export class HomeComponent implements OnInit {
     private palsService: PalsService,
     private profileService: ProfileService
   ) {
-    this.pals = palsService.getPals();
+    this.profileSubscription = new Subscription();
+    // console.log(this.profiles);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('in init');
+    this.profileSubscription = this.profileService
+      .pull()
+      .subscribe((profiles) => (this.profiles = profiles));
+  }
 
   filterBySkillLevel(skillLevelFilter: SkillLevel) {
     this.skillLevel = skillLevelFilter;
@@ -69,6 +76,10 @@ export class HomeComponent implements OnInit {
     this.profiles = allProfiles.filter(
       (profile) => profile.skillLevel == this.skillLevel
     );
+  }
+
+  ngOnDestroy(): void {
+    this.profileSubscription.unsubscribe();
   }
 }
 

@@ -9,18 +9,23 @@ import { HomeComponent } from './component/home/home.component';
 import { PalsComponent } from './component/pals/pals.component';
 import { FilterComponent } from './component/filter/filter.component';
 import { FormsModule } from '@angular/forms';
-import { NavigationBarComponent } from './component/navigation-bar/navigation-bar.component';
+import { NavigationBarComponent } from './component/navigationbar/navigation-bar.component';
+import { PalsService } from './service/pals.service';
+import { ProfileService } from './service/profile.service';
 
 const routes: Routes = [
   {
-    path: "", component: HomeComponent,
+    path: '',
+    component: HomeComponent,
   },
   {
-    path: "pals", component: PalsComponent
+    path: 'pals',
+    component: PalsComponent,
   },
   {
-    path: 'pal/:id', component: PalComponent 
-  }
+    path: 'pal/:id',
+    component: PalComponent,
+  },
 ];
 
 @NgModule({
@@ -31,14 +36,10 @@ const routes: Routes = [
     HomeComponent,
     PalsComponent,
     FilterComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes),
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule],
+  providers: [PalsService, ProfileService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,13 +1,45 @@
 import { Injectable } from '@angular/core';
 import { profileData } from '../data/profileData';
 import { Profile } from '../model/profile';
+import { BehaviorSubject, Observable, of, Subject, tap } from 'rxjs';
+import { OnInit } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class ProfileService {
+export class ProfileService implements OnInit {
+  profiles: Profile[] = [];
+  profilesSubject: BehaviorSubject<Profile[]> = new BehaviorSubject(
+    profileData
+  );
 
-  constructor() { }
+  constructor() {
+    this.profiles = profileData;
+    this.profilesSubject.next(profileData);
+    // this.profilesSubject.next(this.profiles.slice());
+  }
+
+  ngOnInit(): void {
+    // this.profiles = profileData;
+    // console.log('In profile Service');
+    // this.profilesSubject.next(this.profiles.slice());
+  }
+
+  getProfilesObservable(): Observable<Profile[]> {
+    return this.profilesSubject.asObservable();
+  }
+
+  pull(): Observable<Profile[]> {
+    return this.profilesSubject.pipe(
+      tap((value) => {
+        console.log(value);
+      })
+    );
+  }
+
+  // pull(): Subject<Profile[]> {
+  //   return this.profilesSubject;
+  // }
 
   getProfiles(): Profile[] {
     return profileData;

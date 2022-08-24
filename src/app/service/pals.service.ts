@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of, Subject } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,12 +13,17 @@ export class PalsService {
     this.palsIdsSubject = new Subject();
   }
 
+  getPalsObservable(): Observable<Set<number>> {
+    return of(this.palsIds);
+  }
+
   getPals(): Set<number> {
     return new Set(this.palsIds);
   }
 
   addPal(index: number) {
     this.palsIds.add(index);
+    console.log('adding pal');
     this.palsIdsSubject.next(new Set(this.palsIds));
   }
 
@@ -27,7 +32,7 @@ export class PalsService {
     this.palsIdsSubject.next(new Set(this.palsIds));
   }
 
-  pull(): Subject<Set<number>> {
+  pull(): Observable<Set<number>> {
     return this.palsIdsSubject;
   }
 }
