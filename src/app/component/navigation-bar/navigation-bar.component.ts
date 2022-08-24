@@ -4,13 +4,13 @@ import { PalsService } from 'src/app/service/pals.service';
 @Component({
   selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
-  styleUrls: ['./navigation-bar.component.css']
+  styleUrls: ['./navigation-bar.component.css'],
 })
 export class NavigationBarComponent implements OnInit {
-
-  constructor(private palsService : PalsService) { }
+  palsSize: number = 0;
+  constructor(private palsService: PalsService) {}
 
   ngOnInit(): void {
+    this.palsSize = this.palsService.getPals().size;
   }
-
 }

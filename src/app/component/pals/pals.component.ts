@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { profileData } from 'src/app/data/profileData';
 import { Profile } from 'src/app/model/profile';
-import { PalService } from 'src/app/service/pal.service';
+import { PalsService } from 'src/app/service/pals.service';
 // import { pals } from '../home/home.component';
 
 @Component({
@@ -14,8 +14,8 @@ export class PalsComponent implements OnInit {
   profiles: Profile[] = profileData;
 
   // constructor injection is needed
-  constructor(private palService: PalService) {
-    this.palIndices = palService.getPals();
+  constructor(private palsService: PalsService) {
+    this.palIndices = palsService.getPals();
    }
 
   ngOnInit(): void {
@@ -23,7 +23,7 @@ export class PalsComponent implements OnInit {
 
   // need to use Service to delete Pals from the list
   deletePal(index: number): void {
-    this.palService.removePal(index);
+    this.palsService.removePal(index);
   }
 
 }
