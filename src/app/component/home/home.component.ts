@@ -77,6 +77,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.profiles = this.profiles.filter(
         (profile) => profile.skillLevel == this.skillLevel
       );
+    this.index = 0;
   }
 
   ngOnDestroy(): void {
