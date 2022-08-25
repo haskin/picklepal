@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { PalsService } from 'src/app/service/pals.service';
 
 @Component({
@@ -6,13 +7,19 @@ import { PalsService } from 'src/app/service/pals.service';
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.css'],
 })
-export class NavigationBarComponent implements OnInit {
+export class NavigationBarComponent implements OnInit, OnDestroy {
   palsSize: number = 0;
-  constructor(private palsService: PalsService) {
-    palsService.pull().subscribe(palsId => { this.palsSize = palsId.size });
-  }
+  private palsSubscription = new Subscription();
+  constructor(private palsService: PalsService) {}
 
   ngOnInit(): void {
-    this.palsSize = this.palsService.getPals().size;
+    this.palsSubscription = this.palsService.pull().subscribe((pals) => {
+      this.palsSize = pals.length;
+    });
+    //  this.palsSize = this.palsService.getPals().length;
+  }
+
+  ngOnDestroy(): void {
+    this.palsSubscription.unsubscribe();
   }
 }

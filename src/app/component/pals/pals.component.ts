@@ -12,13 +12,13 @@ import { ProfileService } from 'src/app/service/profile.service';
   styleUrls: ['./pals.component.css'],
 })
 export class PalsComponent implements OnInit, OnDestroy {
-  palsIds: Set<number> = new Set<number>();
-  palsIds$: Observable<Set<number>> = new Observable<Set<number>>();
-  profiles$: Observable<Profile[]> = new Observable();
+  pals$: Observable<Profile[]> = new Observable();
 
+  // palsIds: Set<number> = new Set<number>();
+  // palsIds$: Observable<Set<number>> = new Observable<Set<number>>();
+  // profiles$: Observable<Profile[]> = new Observable();
   palsSubscription: Subscription = new Subscription();
   profilesSubscription: Subscription = new Subscription();
-  observe: any[] | Observable<number> = new Observable();
   // constructor injection is needed
   constructor(
     private palsService: PalsService,
@@ -28,11 +28,11 @@ export class PalsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.palsSubscription = this.palsService.pull().subscribe((palsIds) => {
-      this.palsIds = palsIds;
-    });
-    this.palsIds$ = this.palsService.getPalsObservable();
-    this.profiles$ = this.profileService.getProfilesObservable();
+    // this.palsSubscription = this.palsService.pull().subscribe((palsIds) => {
+    //   this.palsIds = palsIds;
+    // });
+    this.pals$ = this.palsService.getPalsObservable();
+    // this.profiles$ = this.profileService.getProfilesObservable();
     // this.profilesSubscription = this.profileService
     //   .pull()
     //   .subscribe((profiles) => {
@@ -48,6 +48,6 @@ export class PalsComponent implements OnInit, OnDestroy {
 
   // need to use Service to delete Pals from the list
   deletePal(index: number): void {
-    this.palsService.removePal(index);
+    // this.palsService.removePal(profiles[index]);
   }
 }

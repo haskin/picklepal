@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }, 100);
   }
   rightSwipe() {
-    this.palsService.addPal(this.index);
+    this.palsService.addPal(this.profiles[this.index]);
     this.index = (this.index + 1) % this.profiles.length;
     this.cardSwipe = 'translate(1000px, 250px) rotate(60deg)';
     setTimeout(() => {

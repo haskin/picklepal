@@ -1,12 +1,21 @@
 <app-navigation-bar></app-navigation-bar>
 <div id="pals-container">
+  <ul id="pals-list" *ngFor="let pal of pals$ | async">
+    <a routerLink="/pal/{{ pal.id }}">
+      <img [src]="pal.photo" alt="" />
+      <!-- <img [src]="profiles$[index].photo" alt="" /> -->
+    </a>
+    <!-- <button (click)="deletePal(index)">Delete</button> -->
+  </ul>
+</div>
+<!-- <div id="pals-container">
   <ul id="pals-list" *ngFor="let id of palsIds$ | async">
     <ng-container *ngIf="profiles$ | async as profiles">
       <a routerLink="/pal/{{ id }}">
         <img [src]="profiles[id].photo" alt="" />
-        <!-- <img [src]="profiles$[index].photo" alt="" /> -->
+        <img [src]="profiles$[index].photo" alt="" />
       </a>
-      <!-- <button (click)="deletePal(index)">Delete</button> -->
+      <button (click)="deletePal(index)">Delete</button>
     </ng-container>
   </ul>
-</div>
+</div> -->

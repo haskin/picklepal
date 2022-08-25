@@ -1,9 +1,12 @@
 <div id="navigation-bar-container">
-  <a id="home-link" routerLink="/"><img src="assets/house.png"/></a>
+  <a id="home-link" routerLink="/"><img src="assets/house.png" /></a>
   <div id="logo-container">
     <h1>Pickle</h1>
     <img id="logo" src="assets/pickle-rick.png" alt="" />
     <h1>Pal</h1>
   </div>
-  <a id="pal-list-link" routerLink="/pals">Pal List ({{ palsSize }})</a>
+  <a id="pal-list-link" routerLink="/pals"
+    >Pal List
+    <ng-container> ({{ palsSize }}) </ng-container>
+  </a>
 </div>
