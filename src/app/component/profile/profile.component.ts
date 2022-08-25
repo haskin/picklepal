@@ -10,6 +10,7 @@ import { SkillLevel } from 'src/app/model/skillLevel.enum';
 export class ProfileComponent implements OnInit {
   @Input()
   profile: Profile = {
+    id: 0,
     name: '',
     age: 0,
     photo: '',
