@@ -15,7 +15,7 @@ export class ProfileService implements OnInit {
 
   constructor() {
     this.profiles = profileData;
-    this.profilesSubject.next(profileData);
+    this.profilesSubject.next(this.profiles.slice());
     // this.profilesSubject.next(this.profiles.slice());
   }
 
@@ -37,11 +37,7 @@ export class ProfileService implements OnInit {
     );
   }
 
-  // pull(): Subject<Profile[]> {
-  //   return this.profilesSubject;
-  // }
-
   getProfiles(): Profile[] {
-    return profileData;
+    return this.profiles.slice();
   }
 }
