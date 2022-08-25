@@ -3,8 +3,8 @@ import { SkillLevel } from 'src/app/model/skillLevel.enum';
 
 @Component({
   selector: 'app-filter',
-  templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.css'],
+  templateUrl: './filters.component.html',
+  styleUrls: ['./filters.component.css'],
 })
 export class FilterComponent implements OnInit {
   tempValue = 'test';

@@ -7,7 +7,7 @@ import { PalComponent } from './component/pal/pal.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './component/home/home.component';
 import { PalsComponent } from './component/pals/pals.component';
-import { FilterComponent } from './component/filter/filter.component';
+import { FilterComponent } from './component/filters/filters.component';
 import { FormsModule } from '@angular/forms';
 import { NavigationBarComponent } from './component/navigationbar/navigation-bar.component';
 import { PalsService } from './service/pals.service';
