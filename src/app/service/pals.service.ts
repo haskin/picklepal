@@ -7,25 +7,26 @@ import { Profile } from '../model/profile';
 })
 export class PalsService {
   // palArray
-  pals: Profile[] = [];
-  palsSubject: Subject<Profile[]> = new Subject();
+  pals: Set<Profile> = new Set();
+  // pals:Set<Profile> Set<Profile> = [];
+  palsSubject: Subject<Set<Profile>> = new Subject();
 
   constructor() {
     this.palsSubject = new Subject();
-    this.palsSubject.next([...this.pals]);
+    this.palsSubject.next(new Set(this.pals));
   }
 
-  getPalsObservable(): Observable<Profile[]> {
+  getPalsObservable(): Observable<Set<Profile>> {
     return of(this.pals);
   }
 
-  getPals(): Profile[] {
+  getPals(): Set<Profile> {
     return this.pals;
   }
 
   addPal(pal: Profile) {
-    this.pals = [...this.pals, pal];
-    this.palsSubject.next([...this.pals]);
+    this.pals = new Set(this.pals.add(pal));
+    this.palsSubject.next(new Set(this.pals));
   }
   // addPal(index: number) {
   //   this.palsIds.add(index);
@@ -34,15 +35,16 @@ export class PalsService {
   // }
 
   removePal(removePal: Profile) {
-    this.pals = this.pals.filter((pal) => pal.id !== removePal.id);
-    this.palsSubject.next([...this.pals]);
+    this.pals.delete(removePal);
+    // this.pals = this.pals.filter((pal) => pal.id !== removePal.id);
+    this.palsSubject.next(new Set(this.pals));
   }
   // removePal(index: number) {
   //   this.palsIds.delete(index);
   //   this.palsIdsSubject.next(new Set(this.palsIds));
   // }
 
-  pull(): Observable<Profile[]> {
+  pull(): Observable<Set<Profile>> {
     return this.palsSubject;
   }
 }

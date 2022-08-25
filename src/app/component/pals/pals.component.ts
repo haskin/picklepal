@@ -12,11 +12,11 @@ import { ProfileService } from 'src/app/service/profile.service';
   styleUrls: ['./pals.component.css'],
 })
 export class PalsComponent implements OnInit, OnDestroy {
-  pals$: Observable<Profile[]> = new Observable();
+  pals$: Observable<Set<Profile>> = new Observable();
 
   // palsIds: Set<number> = new Set<number>();
   // palsIds$: Observable<Set<number>> = new Observable<Set<number>>();
-  // profiles$: Observable<Profile[]> = new Observable();
+  // profiles$: Observable<Set<Profile>> = new Observable();
   palsSubscription: Subscription = new Subscription();
   profilesSubscription: Subscription = new Subscription();
   // constructor injection is needed
