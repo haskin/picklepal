@@ -16,6 +16,7 @@ import { FilterService } from './filter.service';
 import { FilterType } from '../model/filterTypes.enum';
 import { SkillLevel } from '../model/skillLevel.enum';
 import { MatchType } from '../model/matchType.enum';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -29,9 +30,14 @@ export class ProfileService implements OnInit {
   matchTypeFilter: string = MatchType.All;
   filterSubscription?: Subscription;
 
-  constructor(private filterService: FilterService) {
-    this.profiles = profileData;
-    this.profilesSubject.next(this.profiles.slice());
+  constructor(private filterService: FilterService, private httpClient: HttpClient) {
+    // this.profiles = profileData;
+    this.httpClient.get<Profile[]>('http://localhost:8080/profile')
+    .subscribe((profiles: Profile[]) => {
+      this.profiles = profiles;
+      this.profilesSubject.next(this.profiles.slice());
+    });
+
     this.filterSubscription = filterService.pull().subscribe((filterEvent) => {
       this.updateFilter(filterEvent);
       this.filterProfiles();

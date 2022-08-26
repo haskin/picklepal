@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { NavigationBarComponent } from './component/navigationbar/navigation-bar.component';
 import { PalsService } from './service/pals.service';
 import { ProfileService } from './service/profile.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -40,7 +41,7 @@ const routes: Routes = [
     FiltersComponent,
     NavigationBarComponent,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule],
+  imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpClientModule],
   providers: [PalsService, ProfileService],
   bootstrap: [AppComponent],
 })
