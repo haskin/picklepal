@@ -13,6 +13,9 @@ import { ProfileService } from 'src/app/service/profile.service';
 })
 export class PalsComponent implements OnInit, OnDestroy {
   pals$: Observable<Set<Profile>> = new Observable();
+  pals: Set<Profile> = new Set();
+
+
 
   // palsIds: Set<number> = new Set<number>();
   // palsIds$: Observable<Set<number>> = new Observable<Set<number>>();
@@ -32,6 +35,9 @@ export class PalsComponent implements OnInit, OnDestroy {
     //   this.palsIds = palsIds;
     // });
     this.pals$ = this.palsService.getPalsObservable();
+    this.pals$.subscribe(pals => {
+      this.pals = pals;
+    })
     // this.profiles$ = this.profileService.getProfilesObservable();
     // this.profilesSubscription = this.profileService
     //   .pull()
@@ -47,7 +53,9 @@ export class PalsComponent implements OnInit, OnDestroy {
   }
 
   // need to use Service to delete Pals from the list
-  deletePal(index: number): void {
-    // this.palsService.removePal(profiles[index]);
+  deletePal(id: number): void {
+    const palArray = Array.from(this.pals);
+    this.palsService.removePal(palArray.filter(pal => pal.id === id)[0]);
   }
+
 }

@@ -8,17 +8,6 @@
       <img [src]="pal.photo" alt="" />
       <!-- <img [src]="profiles$[index].photo" alt="" /> -->
     </a>
-    <!-- <button (click)="deletePal(index)">Delete</button> -->
+    <button (click)="deletePal(pal.id)">Delete</button>
   </ul>
 </div>
-<!-- <div id="pals-container">
-  <ul id="pals-list" *ngFor="let id of palsIds$ | async">
-    <ng-container *ngIf="profiles$ | async as profiles">
-      <a routerLink="/pal/{{ id }}">
-        <img [src]="profiles[id].photo" alt="" />
-        <img [src]="profiles$[index].photo" alt="" />
-      </a>
-      <button (click)="deletePal(index)">Delete</button>
-    </ng-container>
-  </ul>
-</div> -->
