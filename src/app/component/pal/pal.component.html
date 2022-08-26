@@ -1,9 +1,13 @@
 <app-navigation-bar></app-navigation-bar>
-<div id = "profile-container">
-    <div id="image-container">
-        <img [src]="profile.photo" alt="">
-    </div>
-    <p><strong>{{profile.name}}</strong>, <i>{{profile.age}}</i></p>
-    <p>{{profile.skillLevel}}</p>
-    <p>{{profile.description}}</p>
-</div>>
+<div id="profile-container">
+  <div id="image-container">
+    <img [src]="profile.photo" alt="" />
+  </div>
+  <p>
+    <strong>{{ profile.name }}</strong
+    >, <i>{{ profile.age }}</i>
+  </p>
+  <p><i>Skill Level: </i>{{ profile.skillLevel }}</p>
+  <p><i>Match Type: </i>{{ profile.matchType }}</p>
+  <p>{{ profile.description }}</p>
+</div>

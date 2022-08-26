@@ -25,6 +25,8 @@ export class PalComponent implements OnInit {
 
   ngOnInit(): void {
     this.index = Number(this.route.snapshot.paramMap.get('id'));
-    this.profile = profileData[this.index];
+    this.profile = [...profileData].filter(
+      (profile) => profile.id === this.index
+    )[0];
   }
 }
