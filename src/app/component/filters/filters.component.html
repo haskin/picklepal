@@ -1,20 +1,6 @@
 <div id="filters-container">
   <h1>Filters</h1>
   <div class="filters-row">
-    <!-- <div class="select-filter-container">
-      <label class="label-select-filter">Skill Level</label>
-      <select
-        [(ngModel)]="currentSkillLevel"
-        (ngModelChange)="skillLevelChange($event)"
-        name="dropdownOption"
-        id="skillLevelFilter"
-        class="select-filter"
-      >
-        <option *ngFor="let skill of skillLevels" [ngValue]="skill">
-          {{ skill }}
-        </option>
-      </select>
-    </div> -->
     <app-filter
       [title]="'Skill Level'"
       [selectedOption]="defaultSkillLevel"

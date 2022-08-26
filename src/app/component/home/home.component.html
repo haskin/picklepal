@@ -9,20 +9,21 @@
   (skillEvent)="filterBySkillLevel($event)"
   (genericEvent)="filterEvent($event)"
 ></app-filters>
-<div id="main-container">
-  <div class="arrow-container" [ngStyle]="{ display: cardDisplay }">
-    <button (click)="leftSwipe()" id="left-arrow" class="arrow">
-      <img src="assets/up-arrow.png" alt="" />
-    </button>
-  </div>
-  <app-profile
-    id="profile-container"
-    [profile]="profiles[index]"
-    [ngStyle]="{ transform: cardSwipe, display: cardDisplay }"
-  ></app-profile>
-  <div class="arrow-container" [ngStyle]="{ display: cardDisplay }">
-    <button (click)="rightSwipe()" id="right-arrow" class="arrow">
-      <img src="assets/up-arrow.png" alt="" />
-    </button>
-  </div>
-</div>
+<ng-container *ngIf="profiles.length > 0">
+  <div id="main-container">
+    <div class="arrow-container" [ngStyle]="{ display: cardDisplay }">
+      <button (click)="leftSwipe()" id="left-arrow" class="arrow">
+        <img src="assets/up-arrow.png" alt="" />
+      </button>
+    </div>
+    <app-profile
+      id="profile-container"
+      [profile]="profiles[index]"
+      [ngStyle]="{ transform: cardSwipe, display: cardDisplay }"
+    ></app-profile>
+    <div class="arrow-container" [ngStyle]="{ display: cardDisplay }">
+      <button (click)="rightSwipe()" id="right-arrow" class="arrow">
+        <img src="assets/up-arrow.png" alt="" />
+      </button>
+    </div></div
+></ng-container>

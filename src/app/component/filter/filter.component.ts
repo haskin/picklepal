@@ -11,9 +11,9 @@ export class FilterComponent<T> implements OnInit {
   @Input()
   title: string = '';
   @Input()
-  selectedOption: T | null = null;
+  selectedOption?: T;
   @Input()
-  options: T[] | null = null;
+  options?: T[];
   @Input()
   type?: FilterType;
 

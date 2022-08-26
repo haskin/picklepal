@@ -33,7 +33,7 @@ export const profileData: Profile[] = [
     skillLevel: SkillLevel.Beginner,
     description:
       'He had a strange appearance, almost as if it was contrived. He had sad, way worn eyes and a distinctive beard.',
-    matchType: MatchType.All,
+    matchType: MatchType.Singles,
   },
   {
     id: 4,
@@ -63,7 +63,7 @@ export const profileData: Profile[] = [
     age: 73,
     skillLevel: SkillLevel.Intermediate,
     description: 'intelligent and venerable.',
-    matchType: MatchType.All,
+    matchType: MatchType.Doubles,
   },
   {
     id: 7,
@@ -73,7 +73,7 @@ export const profileData: Profile[] = [
     age: 69,
     skillLevel: SkillLevel.Master,
     description: 'wicked and disagreeable.',
-    matchType: MatchType.All,
+    matchType: MatchType.Singles,
   },
   {
     id: 8,
@@ -103,7 +103,7 @@ export const profileData: Profile[] = [
     age: 81,
     skillLevel: SkillLevel.Advanced,
     description: 'gray-haired and hatchet-faced.',
-    matchType: MatchType.All,
+    matchType: MatchType.Singles,
   },
   {
     id: 11,

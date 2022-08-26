@@ -63,6 +63,7 @@ export class ProfileService implements OnInit {
   filterProfiles() {
     console.log('filtering profiles');
     let filteredProfiles = this.profiles.slice();
+    console.log(`Unfiltered profiles size: ${filteredProfiles.length}`);
     if (this.skillLevelFilter !== SkillLevel.All) {
       filteredProfiles = [
         ...filteredProfiles.filter((profile) => {
@@ -83,7 +84,7 @@ export class ProfileService implements OnInit {
         }),
       ];
     }
-    console.log(`Filtered Profiles: ${filteredProfiles}`);
+    console.log(`Filtered Profiles Size: ${filteredProfiles.length}`);
     this.profilesSubject.next(filteredProfiles);
   }
   updateFilter(filterEvent: FilterEvent<FilterType>) {
