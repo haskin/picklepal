@@ -1,3 +1,4 @@
+import { MatchType } from './matchType.enum';
 import { SkillLevel } from './skillLevel.enum';
 
 export interface Profile {
@@ -7,4 +8,5 @@ export interface Profile {
   age: number;
   skillLevel: SkillLevel;
   description: string;
+  matchType?: MatchType;
 }

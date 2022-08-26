@@ -1,0 +1,15 @@
+<div class="filters-row">
+  <div class="select-filter-container">
+    <label class="label-select-filter">{{ title }}</label>
+    <select
+      [(ngModel)]="selectedOption"
+      (ngModelChange)="optionChange($event)"
+      name="dropdownOption"
+      class="select-filter"
+    >
+      <option *ngFor="let option of options" [ngValue]="option">
+        {{ option }}
+      </option>
+    </select>
+  </div>
+</div>

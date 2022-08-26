@@ -5,7 +5,10 @@
   <img id="logo" src="assets/pickle-rick.png" alt="" />
   <h1>Pal</h1>
 </div> -->
-<app-filter (skillEvent)="filterBySkillLevel($event)"></app-filter>
+<app-filters
+  (skillEvent)="filterBySkillLevel($event)"
+  (genericEvent)="filterEvent($event)"
+></app-filters>
 <div id="main-container">
   <div class="arrow-container" [ngStyle]="{ display: cardDisplay }">
     <button (click)="leftSwipe()" id="left-arrow" class="arrow">

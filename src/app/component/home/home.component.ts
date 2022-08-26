@@ -71,6 +71,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     //profileData = profileData.filter()
   }
 
+  filterEvent(event: any) {
+    console.log('in home filter component');
+    this.skillLevel = event;
+    // console.log(this.skillLevel);
+    this.filter();
+  }
+
   filter() {
     this.profiles = this.profileService.getProfiles();
     if (this.skillLevel !== SkillLevel.All)

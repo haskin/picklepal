@@ -1,3 +1,4 @@
+import { MatchType } from '../model/matchType.enum';
 import { Profile } from '../model/profile';
 import { SkillLevel } from '../model/skillLevel.enum';
 
@@ -10,6 +11,7 @@ export const profileData: Profile[] = [
     age: 82,
     skillLevel: SkillLevel.Beginner,
     description: 'Likes long walks on the beach. Hurts his hip.',
+    matchType: MatchType.Doubles,
   },
   {
     id: 2,
@@ -19,6 +21,7 @@ export const profileData: Profile[] = [
     age: 78,
     skillLevel: SkillLevel.Master,
     description: 'Likes to crochet and look at pictures of her grandson.',
+    matchType: MatchType.All,
   },
 
   {
@@ -30,6 +33,7 @@ export const profileData: Profile[] = [
     skillLevel: SkillLevel.Beginner,
     description:
       'He had a strange appearance, almost as if it was contrived. He had sad, way worn eyes and a distinctive beard.',
+    matchType: MatchType.All,
   },
   {
     id: 4,
@@ -39,6 +43,7 @@ export const profileData: Profile[] = [
     age: 72,
     skillLevel: SkillLevel.Advanced,
     description: 'delicately frail.',
+    matchType: MatchType.All,
   },
   {
     id: 5,
@@ -48,6 +53,7 @@ export const profileData: Profile[] = [
     age: 67,
     skillLevel: SkillLevel.Advanced,
     description: 'sarcastic and talented.',
+    matchType: MatchType.All,
   },
   {
     id: 6,
@@ -57,6 +63,7 @@ export const profileData: Profile[] = [
     age: 73,
     skillLevel: SkillLevel.Intermediate,
     description: 'intelligent and venerable.',
+    matchType: MatchType.All,
   },
   {
     id: 7,
@@ -66,6 +73,7 @@ export const profileData: Profile[] = [
     age: 69,
     skillLevel: SkillLevel.Master,
     description: 'wicked and disagreeable.',
+    matchType: MatchType.All,
   },
   {
     id: 8,
@@ -75,6 +83,7 @@ export const profileData: Profile[] = [
     age: 67,
     skillLevel: SkillLevel.Beginner,
     description: 'blind and depraved.',
+    matchType: MatchType.All,
   },
   {
     id: 9,
@@ -84,6 +93,7 @@ export const profileData: Profile[] = [
     age: 73,
     skillLevel: SkillLevel.Advanced,
     description: 'benevolent and gallant',
+    matchType: MatchType.All,
   },
   {
     id: 10,
@@ -93,6 +103,7 @@ export const profileData: Profile[] = [
     age: 81,
     skillLevel: SkillLevel.Advanced,
     description: 'gray-haired and hatchet-faced.',
+    matchType: MatchType.All,
   },
   {
     id: 11,
@@ -102,6 +113,7 @@ export const profileData: Profile[] = [
     age: 72,
     skillLevel: SkillLevel.Advanced,
     description: 'gregarious and inquisitive.',
+    matchType: MatchType.All,
   },
   {
     id: 12,
@@ -111,5 +123,6 @@ export const profileData: Profile[] = [
     age: 68,
     skillLevel: SkillLevel.Beginner,
     description: 'vindictive and portentous.',
+    matchType: MatchType.All,
   },
 ];

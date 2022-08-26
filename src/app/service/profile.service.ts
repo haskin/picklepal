@@ -1,8 +1,21 @@
 import { Injectable } from '@angular/core';
 import { profileData } from '../data/profileData';
 import { Profile } from '../model/profile';
-import { BehaviorSubject, Observable, of, Subject, tap } from 'rxjs';
+import { FilterEvent } from '../model/filterEvent.enum';
+import {
+  BehaviorSubject,
+  filter,
+  Observable,
+  of,
+  Subject,
+  Subscription,
+  tap,
+} from 'rxjs';
 import { OnInit } from '@angular/core';
+import { FilterService } from './filter.service';
+import { FilterType } from '../model/filterTypes.enum';
+import { SkillLevel } from '../model/skillLevel.enum';
+import { MatchType } from '../model/matchType.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -12,11 +25,17 @@ export class ProfileService implements OnInit {
   profilesSubject: BehaviorSubject<Profile[]> = new BehaviorSubject(
     profileData
   );
+  skillLevelFilter: string = SkillLevel.All;
+  matchTypeFilter: string = MatchType.All;
+  filterSubscription?: Subscription;
 
-  constructor() {
+  constructor(private filterService: FilterService) {
     this.profiles = profileData;
     this.profilesSubject.next(this.profiles.slice());
-    // this.profilesSubject.next(this.profiles.slice());
+    this.filterSubscription = filterService.pull().subscribe((filterEvent) => {
+      this.updateFilter(filterEvent);
+      this.filterProfiles();
+    });
   }
 
   ngOnInit(): void {
@@ -35,6 +54,47 @@ export class ProfileService implements OnInit {
         console.log(value);
       })
     );
+  }
+  /**
+   * Filters the profiles based on the current settings
+   * of the filter fields(skillLevelFilter, matchTypeFilter....)
+   * Updates the profileSubject with the new filtered profiles
+   */
+  filterProfiles() {
+    console.log('filtering profiles');
+    let filteredProfiles = this.profiles.slice();
+    if (this.skillLevelFilter !== SkillLevel.All) {
+      filteredProfiles = [
+        ...filteredProfiles.filter((profile) => {
+          return (
+            profile.skillLevel === this.skillLevelFilter ||
+            profile.skillLevel === SkillLevel.All
+          );
+        }),
+      ];
+    }
+    if (this.matchTypeFilter !== MatchType.All) {
+      filteredProfiles = [
+        ...filteredProfiles.filter((profile) => {
+          return (
+            profile.matchType === this.matchTypeFilter ||
+            profile.matchType === MatchType.All
+          );
+        }),
+      ];
+    }
+    console.log(`Filtered Profiles: ${filteredProfiles}`);
+    this.profilesSubject.next(filteredProfiles);
+  }
+  updateFilter(filterEvent: FilterEvent<FilterType>) {
+    switch (filterEvent.type) {
+      case FilterType.SkillLevel:
+        this.skillLevelFilter = filterEvent.value;
+        break;
+      case FilterType.MatchType:
+        this.matchTypeFilter = filterEvent.value;
+        break;
+    }
   }
 
   getProfiles(): Profile[] {

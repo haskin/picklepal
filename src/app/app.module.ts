@@ -7,7 +7,8 @@ import { PalComponent } from './component/pal/pal.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './component/home/home.component';
 import { PalsComponent } from './component/pals/pals.component';
-import { FilterComponent } from './component/filters/filters.component';
+import { FilterComponent } from './component/filter/filter.component';
+import { FiltersComponent } from './component/filters/filters.component';
 import { FormsModule } from '@angular/forms';
 import { NavigationBarComponent } from './component/navigationbar/navigation-bar.component';
 import { PalsService } from './service/pals.service';
@@ -36,6 +37,7 @@ const routes: Routes = [
     HomeComponent,
     PalsComponent,
     FilterComponent,
+    FiltersComponent,
     NavigationBarComponent,
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule],
