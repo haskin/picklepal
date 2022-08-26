@@ -1,31 +1,55 @@
+#pickle-jar-image-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#img-pickle-rick-jar {
+  aspect-ratio: 1/1;
+  height: 90px;
+  width: 90px;
+}
 #pals-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+  border-radius: 10px;
+  max-width: 810px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #e4fde3;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 #pals-list {
+  margin-bottom: 10px;
 }
 
 img {
-    width: 250px;
-    height: 250px;
-    aspect-ratio: 1/1;
-    margin: 0 auto 0 auto;
-    /* border: 1px solid blue; */
-    border-radius: 10px;
-    z-index: -1;
+  width: 250px;
+  height: 250px;
+  aspect-ratio: 1/1;
+  margin: 0 auto 0 auto;
+  /* border: 1px solid blue; */
+  border-radius: 10px;
+  z-index: -1;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 h1 {
-    position: relative;
-    right: 20px;
-    color: green;
+  position: relative;
+  right: 20px;
+  color: green;
 }
 button {
   background-color: red;
@@ -37,7 +61,7 @@ button {
   position: relative;
   display: inline;
   /* right:500px; */
-  bottom:225px;
+  bottom: 225px;
   right: 60px;
 }
 
