@@ -8,6 +8,7 @@ import { FilterEvent } from 'src/app/model/filterEvent.enum';
   styleUrls: ['../filters/filters.component.css'],
 })
 export class FilterComponent<T> implements OnInit {
+  
   @Input()
   title: string = '';
   @Input()

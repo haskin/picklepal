@@ -7,6 +7,7 @@ import { FilterType } from '../model/filterTypes.enum';
   providedIn: 'root',
 })
 export class FilterService {
+
   filterEventSubject: Subject<FilterEvent<FilterType>> = new Subject();
 
   updateFilterEvent(event: FilterEvent<FilterType>): void {
@@ -15,6 +16,7 @@ export class FilterService {
   }
 
   constructor() {}
+  
   pull(): Observable<FilterEvent<FilterType>> {
     return this.filterEventSubject.asObservable();
   }

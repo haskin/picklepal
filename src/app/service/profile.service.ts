@@ -87,6 +87,7 @@ export class ProfileService implements OnInit {
     console.log(`Filtered Profiles Size: ${filteredProfiles.length}`);
     this.profilesSubject.next(filteredProfiles);
   }
+
   updateFilter(filterEvent: FilterEvent<FilterType>) {
     switch (filterEvent.type) {
       case FilterType.SkillLevel:
